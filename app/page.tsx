@@ -226,7 +226,7 @@ const PRICE_RANGES = [
 
 // ─── Utility ────────────────────────────────────────────────────────────────
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating }: { rating: number }) => {
   const full = Math.floor(rating);
   const half = rating % 1 >= 0.5;
   return (
@@ -236,8 +236,15 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const Tag = ({ label, color = "#E8F5E9", textColor = "#2E7D32" }) => (
-  <span style={{
+  const Tag = ({
+  label,
+  color = "#E8F5E9",
+  textColor = "#2E7D32",
+}: {
+  label: string;
+  color?: string;
+  textColor?: string;
+}) => (<span style={{
     background: color, color: textColor,
     borderRadius: 999, padding: "3px 10px",
     fontSize: 11, fontWeight: 700, letterSpacing: 0.5,
